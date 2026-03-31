@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Teaching PPT Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>🇨🇳 Chinese Teaching PPT Generator</h1>
+      <p class="subtitle">AI-powered slide generation for HSK-oriented Chinese lessons</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Input Panel -->
+    <section class="input-panel">
+      <div class="card">
+        <h2>Lesson Setup</h2>
+
+        <div class="form-group">
+          <label for="apiKey">OpenAI API Key</label>
+          <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off">
+          <small>Your key is sent directly to OpenAI and never stored on the server.</small>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="hskLevel">HSK Level</label>
+            <select id="hskLevel">
+              <option value="HSK3">HSK 3</option>
+              <option value="HSK4" selected>HSK 4</option>
+              <option value="HSK5">HSK 5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="language">Translation Language</label>
+            <select id="language">
+              <option value="en" selected>English</option>
+              <option value="id">Indonesian</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="topic">Lesson Topic</label>
+          <input type="text" id="topic" placeholder='e.g. "Going to the Hospital", "Ordering Food", "Taking a Taxi"'>
+        </div>
+
+        <div class="form-group">
+          <label for="content">Lesson Content / Vocabulary <span class="optional">(optional)</span></label>
+          <textarea id="content" rows="5" placeholder="Paste vocabulary list, text passage, or specific words you want to cover..."></textarea>
+        </div>
+
+        <button id="generateBtn" class="btn-primary">Generate PPT Slides</button>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Generating your Chinese teaching slides...</p>
+      <p class="loading-sub">This may take 20-40 seconds</p>
+    </section>
+
+    <!-- Error State -->
+    <div id="errorBox" class="error-box hidden"></div>
+
+    <!-- Toolbar -->
+    <section id="toolbar" class="toolbar hidden">
+      <div class="toolbar-left">
+        <span id="slideCount"></span>
+      </div>
+      <div class="toolbar-right">
+        <button id="exportMdBtn" class="btn-secondary">Export Markdown</button>
+        <button id="exportPptxBtn" class="btn-secondary">Export .pptx</button>
+      </div>
+    </section>
+
+    <!-- Slides Output -->
+    <section id="slidesContainer" class="slides-container"></section>
+  </main>
+
+  <footer>
+    <p>Chinese Teaching PPT Generator &mdash; Designed for real classroom teaching</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
