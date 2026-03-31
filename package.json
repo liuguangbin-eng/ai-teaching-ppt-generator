@@ -1,0 +1,15 @@
+{
+  "name": "ai-teaching-ppt-generator",
+  "version": "1.0.0",
+  "description": "AI tool for generating Chinese teaching PPTs for foreign students (HSK-oriented)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.20.0",
+    "pptxgenjs": "^3.12.0"
+  }
+}
